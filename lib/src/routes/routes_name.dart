@@ -1,0 +1,9 @@
+const String authPage='/';
+const String loginPage='login';
+const String signupPage='signup';
+const String otpPage='otp';
+const String forgotPasswordPage='forgotPassword';
+const String orderPage='orderPage';
+const String favouritePage='favouritePage';
+const String aboutUs='aboutUs';
+const String cartPage='cartPage';

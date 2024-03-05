@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "26052071140",
+    "project_id": "food-club-2d9c8",
+    "storage_bucket": "food-club-2d9c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26052071140:android:701bebeaa8b723710ca6f1",
+        "android_client_info": {
+          "package_name": "com.thamanna.food_club"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0GO_rRiv7X5aeh0I3Lz8-y0Vvz86NQ5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
