@@ -1,7 +1,7 @@
 const String imagePath = "assets/images";
 const String foodImage="assets/images/foods";
 class ImageAssets {
-  static const String logo = "$imagePath/food_club.png";
+  static const String logo = "$imagePath/food_club_logo.png";
 
   //category
   static const String allFood="$foodImage/all.jpg";
