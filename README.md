@@ -1,7 +1,7 @@
 # Food Club App
  Food Delivery App
  
-## Login & Registration Screen
+## Login & Sign up Screen
 
 <r>
   <img src="https://github.com/ThamannaUsman/Food-Club/assets/147228856/cf3a5312-e647-4f09-824e-85fc22188a89" width="200" height="400">
