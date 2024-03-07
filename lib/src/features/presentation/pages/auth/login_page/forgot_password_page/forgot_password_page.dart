@@ -64,3 +64,4 @@ class ForgotPasswordPage extends StatelessWidget {
     );
   }
 }
+
