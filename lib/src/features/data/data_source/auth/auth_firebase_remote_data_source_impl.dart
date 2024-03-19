@@ -7,6 +7,9 @@ import 'package:food_club/src/features/data/model/auth_model.dart';
 import '../../../domain/entities/auth_entity.dart';
 
 class AuthFirebaseRemoteDataSourceImpl implements AuthFirebaseRemoteDataSource {
+  final FirebaseAuth auth;
+
+  AuthFirebaseRemoteDataSourceImpl(this.auth);
 
   @override
   Future<void> forgotPassword(String email) async {

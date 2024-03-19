@@ -47,7 +47,7 @@ class ConfirmOrder extends StatelessWidget {
           backgroundColor: appColors.blackColor,
         ),
         body: StreamBuilder(
-            stream: FirebaseService.getUser(auth.currentUser!.uid),
+            stream: FirebaseService.getUser(authentication.currentUser!.uid),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (!snapshot.hasData) {
@@ -296,7 +296,7 @@ class ConfirmOrder extends StatelessWidget {
                                       phoneNumber: data['phoneNumber'].toString(),
                                       paymentMethod: payment[selectMethod.value].name,
                                       orders: orders,
-                                      orderBy: auth.currentUser!.uid,
+                                      orderBy: authentication.currentUser!.uid,
                                       orderDate: formattedDate
                                   ),
                                 ),

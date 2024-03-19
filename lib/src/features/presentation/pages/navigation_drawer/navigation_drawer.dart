@@ -29,7 +29,7 @@ class NavigationDrawerWidget extends StatelessWidget {
         child: Column(
           children: [
             StreamBuilder(
-                stream: FirebaseService.getUser(auth.currentUser!.uid),
+                stream: FirebaseService.getUser(authentication.currentUser!.uid),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (!snapshot.hasData) {
                     return utils.loadingWidget();

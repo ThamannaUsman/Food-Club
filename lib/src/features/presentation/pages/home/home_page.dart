@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           ),
           drawer: const NavigationDrawerWidget(),
           body: StreamBuilder(
-              stream: FirebaseService.getUser(auth.currentUser!.uid),
+              stream: FirebaseService.getUser(authentication.currentUser!.uid),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (!snapshot.hasData) {
                   return Utils().loadingWidget();

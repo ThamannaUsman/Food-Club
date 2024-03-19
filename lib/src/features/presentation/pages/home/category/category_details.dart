@@ -312,7 +312,7 @@ class _CategoryDetailsState extends State<CategoryDetails> {
                               price: widget.price,
                               quantity: a,
                               totalPrice: total,
-                              addedBy: auth.currentUser!.uid)));
+                              addedBy: authentication.currentUser!.uid)));
                       Utils().flutterToast('Add to Cart');
                     },
                     style: ButtonStyle(

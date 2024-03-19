@@ -34,7 +34,7 @@ class CartPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: StreamBuilder(
-          stream: FirebaseService.getCart(auth.currentUser!.uid),
+          stream: FirebaseService.getCart(authentication.currentUser!.uid),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
               return utils.loadingWidget();
@@ -50,94 +50,88 @@ class CartPage extends StatelessWidget {
               subTotalCalculate(data);
               itemsSnapshot = data;
 
-              return SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 900,
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: data.length,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Slidable(
-                              endActionPane: ActionPane(
-                                  motion: const StretchMotion(),
-                                  children: [
-                                    SlidableAction(
-                                      onPressed: (context) {
-                                        FirebaseService.deleteDocument(data[index].id);
-                                      },
-                                      backgroundColor:
-                                      appColors.greyShadeColor200,
-                                      foregroundColor:
-                                      appColors.redColorShade800,
-                                      icon: Icons.delete,
-                                      label: 'Delete',
-                                      borderRadius: BorderRadius.circular(6),
-                                    ),
-                                  ]),
-                              child: Container(
-                                width: 400,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    color: appColors.whiteColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                        color: appColors.blackColor, width: 2)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 10),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 5),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(2),
-                                          // Border width
-                                          decoration:  BoxDecoration(
-                                              color: appColors.blackColor87,
-                                              shape: BoxShape.circle),
-                                          child: ClipOval(
-                                            child: SizedBox.fromSize(
-                                              size: const Size.fromRadius(40),
-                                              // Image radius
-                                              child: Image.network(
-                                                  "${data[index]['image']}",
-                                                  fit: BoxFit.fill),
-                                            ),
-                                          ),
-                                        ),
+              return SizedBox(
+                height: 900,
+                child: ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: data.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Slidable(
+                        endActionPane: ActionPane(
+                            motion: const StretchMotion(),
+                            children: [
+                              SlidableAction(
+                                onPressed: (context) {
+                                  FirebaseService.deleteDocument(data[index].id);
+                                },
+                                backgroundColor:
+                                appColors.greyShadeColor200,
+                                foregroundColor:
+                                appColors.redColorShade800,
+                                icon: Icons.delete,
+                                label: 'Delete',
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                            ]),
+                        child: Container(
+                          width: 400,
+                          height: 100,
+                          decoration: BoxDecoration(
+                              color: appColors.whiteColor,
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(
+                                  color: appColors.blackColor, width: 2)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 10),
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceAround,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(bottom: 5),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(2),
+                                    // Border width
+                                    decoration:  BoxDecoration(
+                                        color: appColors.blackColor87,
+                                        shape: BoxShape.circle),
+                                    child: ClipOval(
+                                      child: SizedBox.fromSize(
+                                        size: const Size.fromRadius(40),
+                                        // Image radius
+                                        child: Image.network(
+                                            "${data[index]['image']}",
+                                            fit: BoxFit.fill),
                                       ),
-                                      textWidget(
-                                          "${data[index]['name']}  (x${data[index]['quantity']})",
-                                          appColors.blackColor,
-                                          17,
-                                          FontWeight.w700),
-                                      textWidget(
-                                          '\₹' + "${data[index]['totalPrice']}",
-                                          appColors.blackColor,
-                                          18,
-                                          FontWeight.w500)
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
+                                textWidget(
+                                    "${data[index]['name']}  (x${data[index]['quantity']})",
+                                    appColors.blackColor,
+                                    17,
+                                    FontWeight.w700),
+                                textWidget(
+                                    '\₹' + "${data[index]['totalPrice']}",
+                                    appColors.blackColor,
+                                    18,
+                                    FontWeight.w500)
+                              ],
                             ),
-                          );
-                        },
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
+                    );
+                  },
                 ),
               );
             }
           }),
       bottomNavigationBar: StreamBuilder<Object>(
-          stream: FirebaseService.getCart(auth.currentUser!.uid),
+          stream: FirebaseService.getCart(authentication.currentUser!.uid),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (!snapshot.hasData) {
               return utils.loadingWidget();

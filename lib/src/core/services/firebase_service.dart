@@ -38,7 +38,7 @@ class FirebaseService {
   static getOrders() {
     return fireStore
         .collection('orders')
-        .where('order_by', isEqualTo: auth.currentUser!.uid)
+        .where('order_by', isEqualTo: authentication.currentUser!.uid)
         .snapshots();
   }
   static deleteDocument(docId) {

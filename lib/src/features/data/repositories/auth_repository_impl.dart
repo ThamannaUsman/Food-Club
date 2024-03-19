@@ -1,3 +1,4 @@
+import 'package:food_club/src/core/constants/firebase_const.dart';
 import 'package:food_club/src/features/data/data_source/auth/auth_firebase_remote_data_source.dart';
 import 'package:food_club/src/features/data/data_source/auth/auth_firebase_remote_data_source_impl.dart';
 import 'package:food_club/src/features/domain/entities/auth_entity.dart';
@@ -5,7 +6,7 @@ import 'package:food_club/src/features/domain/repositories/auth_repository.dart'
 
 class AuthRepositoryImpl implements AuthRepository {
   final AuthFirebaseRemoteDataSource remoteDataSource =
-      AuthFirebaseRemoteDataSourceImpl();
+      AuthFirebaseRemoteDataSourceImpl(authentication);
 
   @override
   Future<void> forgotPassword(String email) async =>

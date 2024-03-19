@@ -10,7 +10,7 @@ import '../../features/domain/usecases/order_usecase.dart';
 
 
 //firebase
-FirebaseAuth auth = FirebaseAuth.instance;
+FirebaseAuth authentication = FirebaseAuth.instance;
 FirebaseFirestore fireStore = FirebaseFirestore.instance;
 
 //useCases
